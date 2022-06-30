@@ -19,6 +19,16 @@ const Loadable = (Component) => (props) => {
 	);
 };
 
+// Dashboard
+const PageOne = Loadable(lazy(() => import("../pages/PageOne")));
+const PageTwo = Loadable(lazy(() => import("../pages/PageTwo")));
+const PageThree = Loadable(lazy(() => import("../pages/PageThree")));
+const PageFour = Loadable(lazy(() => import("../pages/PageFour")));
+const PageFive = Loadable(lazy(() => import("../pages/PageFive")));
+const PageSix = Loadable(lazy(() => import("../pages/PageSix")));
+const NotFound = Loadable(lazy(() => import("../pages/Page404")));
+
+
 export default function Router() {
 	return useRoutes([
 		{
@@ -55,13 +65,3 @@ export default function Router() {
 		{ path : "*", element : <Navigate to="/404" replace /> },
 	]);
 }
-
-
-// Dashboard
-const PageOne = Loadable(lazy(() => import("../pages/PageOne")));
-const PageTwo = Loadable(lazy(() => import("../pages/PageTwo")));
-const PageThree = Loadable(lazy(() => import("../pages/PageThree")));
-const PageFour = Loadable(lazy(() => import("../pages/PageFour")));
-const PageFive = Loadable(lazy(() => import("../pages/PageFive")));
-const PageSix = Loadable(lazy(() => import("../pages/PageSix")));
-const NotFound = Loadable(lazy(() => import("../pages/Page404")));
