@@ -3,12 +3,12 @@ import Router from "./routes";
 // theme
 import ThemeProvider from "./theme";
 // components
-import Settings             from "./components/settings";
-import RtlLayout            from "./components/RtlLayout";
-import ScrollToTop          from "./components/ScrollToTop";
-import { ProgressBarStyle } from "./components/ProgressBar";
-import ThemeColorPresets    from "./components/ThemeColorPresets";
-import MotionLazyContainer  from "./components/animate/MotionLazyContainer";
+import Settings             from "./core/settings";
+import RtlLayout            from "./core/RtlLayout";
+import ScrollToTop          from "./core/ScrollToTop";
+import { ProgressBarStyle } from "./core/ProgressBar";
+import ThemeColorPresets    from "./core/ThemeColorPresets";
+import MotionLazyContainer  from "./core/animate/MotionLazyContainer";
 
 // ----------------------------------------------------------------------
 

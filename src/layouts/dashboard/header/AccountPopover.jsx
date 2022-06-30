@@ -3,8 +3,8 @@ import { useState } from "react";
 import { alpha }                                             from "@mui/material/styles";
 import { Box, Divider, Typography, Stack, MenuItem, Avatar } from "@mui/material";
 // components
-import MenuPopover           from "../../../components/MenuPopover";
-import { IconButtonAnimate } from "../../../components/animate";
+import MenuPopover           from "../../../core/MenuPopover";
+import { IconButtonAnimate } from "../../../core/animate";
 
 // ----------------------------------------------------------------------
 

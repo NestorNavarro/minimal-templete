@@ -7,11 +7,11 @@ import { fToNow } from "../../../utils/formatTime";
 // _mock_
 import { _contacts } from "../../../_mock";
 // components
-import Iconify               from "../../../components/Iconify";
-import Scrollbar             from "../../../components/Scrollbar";
-import MenuPopover           from "../../../components/MenuPopover";
-import BadgeStatus           from "../../../components/BadgeStatus";
-import { IconButtonAnimate } from "../../../components/animate";
+import Iconify               from "../../../core/Iconify";
+import Scrollbar             from "../../../core/Scrollbar";
+import MenuPopover           from "../../../core/MenuPopover";
+import BadgeStatus           from "../../../core/BadgeStatus";
+import { IconButtonAnimate } from "../../../core/animate";
 
 // ----------------------------------------------------------------------
 

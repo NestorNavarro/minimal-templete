@@ -4,7 +4,7 @@ import { Navigate, useRoutes, useLocation } from "react-router-dom";
 import DashboardLayout from "../layouts/dashboard";
 import LogoOnlyLayout  from "../layouts/LogoOnlyLayout";
 // components
-import LoadingScreen from "../components/LoadingScreen";
+import LoadingScreen from "../core/LoadingScreen";
 
 // ----------------------------------------------------------------------
 

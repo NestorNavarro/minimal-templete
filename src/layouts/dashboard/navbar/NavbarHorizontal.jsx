@@ -5,7 +5,7 @@ import { Container, AppBar } from "@mui/material";
 // config
 import { HEADER } from "../../../config";
 // components
-import { NavSectionHorizontal } from "../../../components/nav-section";
+import { NavSectionHorizontal } from "../../../core/nav-section";
 //
 import navConfig from "./NavConfig";
 

@@ -2,9 +2,9 @@ import { useState } from "react";
 // @mui
 import { MenuItem, Stack } from "@mui/material";
 // components
-import Image                 from "../../../components/Image";
-import MenuPopover           from "../../../components/MenuPopover";
-import { IconButtonAnimate } from "../../../components/animate";
+import Image                 from "../../../core/Image";
+import MenuPopover           from "../../../core/MenuPopover";
+import { IconButtonAnimate } from "../../../core/animate";
 
 // ----------------------------------------------------------------------
 

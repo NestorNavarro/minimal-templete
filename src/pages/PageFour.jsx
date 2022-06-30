@@ -3,7 +3,7 @@ import { Container, Typography } from "@mui/material";
 // hooks
 import useSettings from "../hooks/useSettings";
 // components
-import Page from "../components/Page";
+import Page from "../core/Page";
 // ----------------------------------------------------------------------
 
 export default function PageFour() {
