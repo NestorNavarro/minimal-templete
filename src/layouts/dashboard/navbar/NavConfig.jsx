@@ -1,5 +1,6 @@
 // components
-import SvgIconStyle from "../../../core/SvgIconStyle";
+import { PATH_DASHBOARD } from "routes/paths";
+import SvgIconStyle       from "../../../core/SvgIconStyle";
 
 // ----------------------------------------------------------------------
 
@@ -16,11 +17,8 @@ const sidebarConfig = [
 	// GENERAL
 	// ----------------------------------------------------------------------
 	{
-		subheader : "general v3.3.0",
-		items     : [
-			{ title : "One", path : "/dashboard/one", icon : ICONS.dashboard },
-			{ title : "Two", path : "/dashboard/two", icon : ICONS.ecommerce },
-			{ title : "Three", path : "/dashboard/three", icon : ICONS.analytics },
+		items : [
+			{ title : "Inicio", path : "/dashboard/home", icon : ICONS.dashboard },
 		],
 	},
 
@@ -34,9 +32,9 @@ const sidebarConfig = [
 				path     : "/dashboard/user",
 				icon     : ICONS.user,
 				children : [
-					{ title : "Four", path : "/dashboard/user/four" },
-					{ title : "Five", path : "/dashboard/user/five" },
-					{ title : "Six", path : "/dashboard/user/six" },
+					{ title : "Perfil", path : PATH_DASHBOARD.users.profile },
+					{ title : "Cartas", path : PATH_DASHBOARD.users.cards },
+					{ title : "Nuevo",  path : PATH_DASHBOARD.users.new },
 				],
 			},
 		],

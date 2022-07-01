@@ -5,7 +5,6 @@ import DashboardLayout from "../layouts/dashboard";
 import LogoOnlyLayout  from "../layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "../core/LoadingScreen";
-
 // ----------------------------------------------------------------------
 
 const Loadable = (Component) => (props) => {
@@ -19,40 +18,71 @@ const Loadable = (Component) => (props) => {
 	);
 };
 
+//Auth
+const Login = Loadable(lazy(() => import("pages/auth/Login")));
+
 // Dashboard
-const PageOne = Loadable(lazy(() => import("../pages/PageOne")));
-const PageTwo = Loadable(lazy(() => import("../pages/PageTwo")));
-const PageThree = Loadable(lazy(() => import("../pages/PageThree")));
-const PageFour = Loadable(lazy(() => import("../pages/PageFour")));
-const PageFive = Loadable(lazy(() => import("../pages/PageFive")));
-const PageSix = Loadable(lazy(() => import("../pages/PageSix")));
-const NotFound = Loadable(lazy(() => import("../pages/Page404")));
+const Home   = Loadable(lazy(() => import("pages/dashboard/Home")));
+
+//users
+const UserProfile  = Loadable(lazy(() => import("pages/dashboard/UserProfile")));
+const UserCards    = Loadable(lazy(() => import("pages/dashboard/UserCards")));
+const UserCreate   = Loadable(lazy(() => import("pages/dashboard/UserCreate")));
+
+//Erros
+const NotFound  = Loadable(lazy(() => import("pages/Page404")));
 
 
 export default function Router() {
 	return useRoutes([
+		//Auth Routes
 		{
-			path    : "/",
-			element : <Navigate to="/dashboard/one" replace />,
+			path     : "auth",
+			// element  : <Navigate to={"auth/login"} replace />,
+			children : [
+			  {
+					path    : "login",
+					element : (
+						// <GuestGuard>
+						<Login />
+						// </GuestGuard>
+					),
+			  },
+			//   {
+			// 		path    : "register",
+			// 		element : (
+			// 			<GuestGuard>
+			// 				<Register />
+			// 			</GuestGuard>
+			// 		),
+			//   },
+			//   { path : "reset-password", element : <ResetPassword /> },
+			//   { path : "verify", element : <VerifyCode /> },
+			],
 		},
+		//Auth DashBoard
 		{
-			path     : "/dashboard",
+			path     : "dashboard",
 			element  : <DashboardLayout />,
 			children : [
-				{ element : <Navigate to="/dashboard/one" replace />, index : true },
-				{ path : "one", element : <PageOne /> },
-				{ path : "two", element : <PageTwo /> },
-				{ path : "three", element : <PageThree /> },
+				{ element : <Navigate to="/dashboard/home" replace />, index : true },
+				{ path : "home", element : <Home /> },
 				{
 					path     : "user",
 					children : [
-						{ element : <Navigate to="/dashboard/user/four" replace />, index : true },
-						{ path : "four", element : <PageFour /> },
-						{ path : "five", element : <PageFive /> },
-						{ path : "six", element : <PageSix /> },
+						{ element : <Navigate to="/dashboard/user/profile" replace />, index : true },
+						{ path : "profile", element : <UserProfile /> },
+						{ path : "cards", element : <UserCards /> },
+						{ path : "new", element : <UserCreate /> },
+						{ path : "edit/:id", element : <UserCreate /> },
 					],
 				},
 			],
+		},
+		//Redirect
+		{
+			path    : "/",
+			element : <Navigate to={"dashboard/home"} replace />,
 		},
 		{
 			path     : "*",

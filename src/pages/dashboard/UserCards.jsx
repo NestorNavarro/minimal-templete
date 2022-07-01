@@ -1,20 +1,20 @@
 // @mui
 import { Container, Typography } from "@mui/material";
 // hooks
-import useSettings from "../hooks/useSettings";
+import useSettings from "hooks/useSettings";
 // components
-import Page from "../core/Page";
+import Page from "core/Page";
 
 // ----------------------------------------------------------------------
 
-export default function PageTwo() {
+export default function UserCards() {
 	const { themeStretch } = useSettings();
 
 	return (
-		<Page title="Page Two">
+		<Page title="Usuarios">
 			<Container maxWidth={themeStretch ? false : "xl"}>
 				<Typography variant="h3" component="h1" paragraph>
-					Page Two
+					Usuarios
 				</Typography>
 				<Typography gutterBottom>
 					Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod

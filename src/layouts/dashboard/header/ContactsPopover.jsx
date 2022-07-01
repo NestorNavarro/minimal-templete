@@ -2,8 +2,8 @@ import { useState } from "react";
 // @mui
 import { alpha }                                                      from "@mui/material/styles";
 import { Avatar, Typography, ListItemText, ListItemAvatar, MenuItem } from "@mui/material";
-// utils
-import { fToNow } from "../../../utils/formatTime";
+// helpers
+import { fToNow } from "../../../helpers/formatTime";
 // _mock_
 import { _contacts } from "../../../_mock";
 // components
