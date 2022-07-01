@@ -1,7 +1,7 @@
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = import.meta.env.PROD;
 
 const apiUrl = isProduction
-	? process.env.VITE_API
-	: process.env.VITE_API_LOCAL;
+	? import.meta.env.VITE_API
+	: import.meta.env.VITE_API_LOCAL;
 
 export default apiUrl;

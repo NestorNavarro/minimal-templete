@@ -29,7 +29,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 	return result;
 };
 
-// Retry at most 6 times.
+// Retry at most 2 times.
 const baseQueryWithRetry = retry(baseQueryWithReauth, { maxRetries : 2 });
 
 export const api = createApi({

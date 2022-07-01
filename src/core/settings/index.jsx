@@ -7,7 +7,7 @@ import { Backdrop, Divider, Typography, Stack, FormControlLabel, Radio } from "@
 // hooks
 import useSettings from "../../hooks/useSettings";
 // utils
-import cssStyles from "../../utils/cssStyles";
+import cssStyles from "../../helpers/cssStyles";
 // config
 import { NAVBAR, defaultSettings } from "../../config";
 //
