@@ -21,10 +21,12 @@ const LoginFormContainer = () => {
 		remember : true,
 	};
 
-	const { handleSubmit, ...hookForm } = useForm({
+	const hookForm = useForm({
 		resolver : yupResolver(LoginSchema),
 		defaultValues,
 	});
+
+	const { handleSubmit } = hookForm;
 
 	const toggleShowPassword = () => setShowPassword(!showPassword);
 
