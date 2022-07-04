@@ -17,7 +17,8 @@ const sidebarConfig = [
 	// GENERAL
 	// ----------------------------------------------------------------------
 	{
-		items : [
+		subheader : "general",
+		items     : [
 			{ title : "Inicio", path : "/dashboard/home", icon : ICONS.dashboard },
 		],
 	},

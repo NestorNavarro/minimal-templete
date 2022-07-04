@@ -1,19 +1,19 @@
-import { capitalCase }        from "change-case";
 import { Link as RouterLink } from "react-router-dom";
 // @mui
-import { styled }                                                        from "@mui/material/styles";
-import { Box, Card, Stack, Link, Alert, Tooltip, Container, Typography } from "@mui/material";
+import { styled }                                               from "@mui/material/styles";
+import { Box, Card, Stack, Link, Alert, Container, Typography } from "@mui/material";
 // routes
 import { PATH_AUTH } from "routes/paths";
 // hooks
-import useAuth       from "hooks/useAuth";
+// import useAuth       from "hooks/useAuth";
 import useResponsive from "hooks/useResponsive";
 // core
-import Page  from "core/Page";
-import Logo  from "core/Logo";
-import Image from "core/Image";
+import Page          from "core/Page";
+import Logo          from "core/Logo";
+import Image         from "core/Image";
+import { LoginForm } from "components/Login";
 // sections
-import { LoginForm } from "sections/auth/login";
+// import { LoginForm } from "components/Login";
 
 // ----------------------------------------------------------------------
 
@@ -61,9 +61,6 @@ const ContentStyle = styled("div")(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Login() {
-	console.log("Auth");
-
-	const { method } = useAuth();
 
 	const smUp = useResponsive("up", "sm");
 
@@ -108,7 +105,7 @@ export default function Login() {
 								<Typography sx={{ color : "text.secondary" }}>Enter your details below.</Typography>
 							</Box>
 
-							<Tooltip title={capitalCase(method)} placement="right">
+							{/* <Tooltip title={capitalCase(method)} placement="right">
 								<>
 									<Image
 										disabledEffect
@@ -116,7 +113,7 @@ export default function Login() {
 										sx={{ width : 32, height : 32 }}
 									/>
 								</>
-							</Tooltip>
+							</Tooltip> */}
 						</Stack>
 
 						<Alert severity="info" sx={{ mb : 3 }}>

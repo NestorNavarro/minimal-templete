@@ -23,3 +23,11 @@ export {
 	fTimestamp,
 	fDateTimeSuffix,
 } from "./formatTime";
+
+export {
+	fData,
+	fNumber,
+	fPercent,
+	fCurrency,
+	fShortenNumber,
+} from "./formatNumber";

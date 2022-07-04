@@ -38,7 +38,7 @@ export default function Router() {
 		//Auth Routes
 		{
 			path     : "auth",
-			element  : <Navigate to={"/auth/login"} replace />,
+			// element  : <Navigate to="/auth/login" replace />,
 			children : [
 			  {
 					path    : "login",
