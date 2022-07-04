@@ -13,7 +13,7 @@ import Page  from "core/Page";
 import Logo  from "core/Logo";
 import Image from "core/Image";
 // sections
-// import { LoginForm } from "sections/auth/login";
+import { LoginForm } from "sections/auth/login";
 
 // ----------------------------------------------------------------------
 
@@ -123,7 +123,7 @@ export default function Login() {
 							Use email : <strong>demo@minimals.cc</strong> / password :<strong> demo1234</strong>
 						</Alert>
 
-						{/* <LoginForm /> */}
+						<LoginForm />
 
 						{!smUp && (
 							<Typography variant="body2" align="center" sx={{ mt : 3 }}>
