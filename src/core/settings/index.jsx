@@ -18,8 +18,6 @@ import { IconButtonAnimate, varFade } from "../animate";
 import ToggleButton        from "./ToggleButton";
 import SettingMode         from "./SettingMode";
 import SettingLayout       from "./SettingLayout";
-import SettingStretch      from "./SettingStretch";
-import SettingDirection    from "./SettingDirection";
 import SettingFullscreen   from "./SettingFullscreen";
 import SettingColorPresets from "./SettingColorPresets";
 
@@ -102,7 +100,7 @@ export default function Settings() {
 					<>
 						<RootStyle {...varSidebar}>
 							<Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ py : 2, pr : 1, pl : 2.5 }}>
-								<Typography variant="subtitle1">Settings</Typography>
+								<Typography variant="subtitle1">Configuraciones</Typography>
 								<div>
 									<IconButtonAnimate onClick={onResetSetting}>
 										<Iconify icon={"ic:round-refresh"} width={20} height={20} />
@@ -118,30 +116,18 @@ export default function Settings() {
 							<Scrollbar sx={{ flexGrow : 1 }}>
 								<Stack spacing={3} sx={{ p : 3 }}>
 									<Stack spacing={1.5}>
-										<Typography variant="subtitle2">Mode</Typography>
+										<Typography variant="subtitle2">Tema</Typography>
 										<SettingMode />
 									</Stack>
-
 									<Stack spacing={1.5}>
-										<Typography variant="subtitle2">Direction</Typography>
-										<SettingDirection />
-									</Stack>
-
-									<Stack spacing={1.5}>
-										<Typography variant="subtitle2">Layout</Typography>
+										<Typography variant="subtitle2">Diseño</Typography>
 										<SettingLayout />
 									</Stack>
 
 									<Stack spacing={1.5}>
-										<Typography variant="subtitle2">Presets</Typography>
+										<Typography variant="subtitle2">Color</Typography>
 										<SettingColorPresets />
 									</Stack>
-
-									<Stack spacing={1.5}>
-										<Typography variant="subtitle2">Stretch</Typography>
-										<SettingStretch />
-									</Stack>
-
 									<SettingFullscreen />
 								</Stack>
 							</Scrollbar>

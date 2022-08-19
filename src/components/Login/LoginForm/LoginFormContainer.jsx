@@ -11,13 +11,13 @@ const LoginFormContainer = () => {
 	const [showPassword, setShowPassword] = useState(false);
 
 	const LoginSchema = Yup.object().shape({
-		email    : Yup.string().email("Email must be a valid email address").required("Email is required"),
-		password : Yup.string().required("Password is required"),
+		email    : Yup.string().email("El correo electrónico debe de tener un formato correcto").required("El correo electrónico es requerido"),
+		password : Yup.string().required("La constraseña es requerida"),
 	});
 
 	const defaultValues = {
-		email    : "demo@minimals.cc",
-		password : "demo1234",
+		email    : "",
+		password : "",
 		remember : true,
 	};
 
@@ -30,7 +30,7 @@ const LoginFormContainer = () => {
 
 	const toggleShowPassword = () => setShowPassword(!showPassword);
 
-	const onSubmit = handleSubmit( async ( data ) => {
+	const onSubmit = handleSubmit(async ( data ) => {
 		console.log("Login", data);
 	});
 

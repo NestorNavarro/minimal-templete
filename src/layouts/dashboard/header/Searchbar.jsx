@@ -3,10 +3,10 @@ import { useState } from "react";
 import { styled }                                                  from "@mui/material/styles";
 import { Input, Slide, Button, InputAdornment, ClickAwayListener } from "@mui/material";
 // utils
-import cssStyles from "../../../helpers/cssStyles";
+import cssStyles from "helpers/cssStyles";
 // components
-import Iconify               from "../../../core/Iconify";
-import { IconButtonAnimate } from "../../../core/animate";
+import Iconify               from "core/Iconify";
+import { IconButtonAnimate } from "core/animate";
 
 // ----------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ export default function Searchbar() {
 							sx={{ mr : 1, fontWeight : "fontWeightBold" }}
 						/>
 						<Button variant="contained" onClick={handleClose}>
-							Search
+							Buscar
 						</Button>
 					</SearchbarStyle>
 				</Slide>

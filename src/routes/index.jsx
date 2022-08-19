@@ -19,7 +19,8 @@ const Loadable = (Component) => (props) => {
 };
 
 //Auth
-const Login = Loadable(lazy(() => import("pages/auth/Login")));
+const Login    = Loadable(lazy(() => import("pages/auth/Login")));
+const Register = Loadable(lazy(() => import("pages/auth/Register")));
 
 // Dashboard
 const Home   = Loadable(lazy(() => import("pages/dashboard/Home")));
@@ -31,7 +32,6 @@ const UserCreate   = Loadable(lazy(() => import("pages/dashboard/UserCreate")));
 
 //Erros
 const NotFound  = Loadable(lazy(() => import("pages/Page404")));
-
 
 export default function Router() {
 	return useRoutes([
@@ -48,14 +48,14 @@ export default function Router() {
 						// </GuestGuard>
 					),
 			  },
-			//   {
-			// 		path    : "register",
-			// 		element : (
-			// 			<GuestGuard>
-			// 				<Register />
-			// 			</GuestGuard>
-			// 		),
-			//   },
+			  {
+					path    : "register",
+					element : (
+						// <GuestGuard>
+						<Register />
+						// </GuestGuard>
+					),
+			  },
 			//   { path : "reset-password", element : <ResetPassword /> },
 			//   { path : "verify", element : <VerifyCode /> },
 			],

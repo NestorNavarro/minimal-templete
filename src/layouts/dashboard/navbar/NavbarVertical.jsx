@@ -5,19 +5,18 @@ import { useLocation } from "react-router-dom";
 import { styled, useTheme }   from "@mui/material/styles";
 import { Box, Stack, Drawer } from "@mui/material";
 // hooks
-import useResponsive     from "../../../hooks/useResponsive";
-import useCollapseDrawer from "../../../hooks/useCollapseDrawer";
+import useResponsive     from "hooks/useResponsive";
+import useCollapseDrawer from "hooks/useCollapseDrawer";
 // utils
-import cssStyles from "../../../helpers/cssStyles";
+import cssStyles from "helpers/cssStyles";
 // config
 import { NAVBAR } from "../../../config";
 // components
-import Logo                   from "../../../core/Logo";
-import Scrollbar              from "../../../core/Scrollbar";
-import { NavSectionVertical } from "../../../core/nav-section";
+import Logo                   from "core/Logo";
+import Scrollbar              from "core/Scrollbar";
+import { NavSectionVertical } from "core/nav-section";
 //
 import navConfig      from "./NavConfig";
-import NavbarDocs     from "./NavbarDocs";
 import NavbarAccount  from "./NavbarAccount";
 import CollapseButton from "./CollapseButton";
 
@@ -53,7 +52,6 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
 		if (isOpenSidebar) {
 			onCloseSidebar();
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pathname]);
 
 	const renderContent = (
@@ -87,8 +85,6 @@ export default function NavbarVertical({ isOpenSidebar, onCloseSidebar }) {
 			<NavSectionVertical navConfig={navConfig} isCollapse={isCollapse} />
 
 			<Box sx={{ flexGrow : 1 }} />
-
-			{!isCollapse && <NavbarDocs />}
 		</Scrollbar>
 	);
 
