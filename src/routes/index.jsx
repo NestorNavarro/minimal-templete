@@ -19,19 +19,19 @@ const Loadable = (Component) => (props) => {
 };
 
 //Auth
-const Login    = Loadable(lazy(() => import("pages/auth/Login")));
-const Register = Loadable(lazy(() => import("pages/auth/Register")));
+const Login         = Loadable(lazy(() => import("pages/auth/Login")));
+const Register      = Loadable(lazy(() => import("pages/auth/Register")));
+const ResetPassword = Loadable(lazy(() => import("pages/auth/ResetPassword")));
 
 // Dashboard
-const Home   = Loadable(lazy(() => import("pages/dashboard/Home")));
-
+const Home = Loadable(lazy(() => import("pages/dashboard/Home")));
 //users
-const UserProfile  = Loadable(lazy(() => import("pages/dashboard/UserProfile")));
-const UserCards    = Loadable(lazy(() => import("pages/dashboard/UserCards")));
-const UserCreate   = Loadable(lazy(() => import("pages/dashboard/UserCreate")));
+const UserProfile = Loadable(lazy(() => import("pages/dashboard/UserProfile")));
+const UserCards   = Loadable(lazy(() => import("pages/dashboard/UserCards")));
+const UserCreate  = Loadable(lazy(() => import("pages/dashboard/UserCreate")));
 
 //Erros
-const NotFound  = Loadable(lazy(() => import("pages/Page404")));
+const NotFound = Loadable(lazy(() => import("pages/Page404")));
 
 export default function Router() {
 	return useRoutes([
@@ -56,7 +56,7 @@ export default function Router() {
 						// </GuestGuard>
 					),
 			  },
-			//   { path : "reset-password", element : <ResetPassword /> },
+			  { path : "reset-password", element : <ResetPassword /> },
 			//   { path : "verify", element : <VerifyCode /> },
 			],
 		},
