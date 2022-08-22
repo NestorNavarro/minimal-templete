@@ -13,13 +13,13 @@ import { RHFTextField, RHFCheckbox, FormProvider } from "components/global/hook-
 const LoginForm = ({
 	delegations : {
 		onSubmit,
-		hookForm,
+		formMethods,
 		showPassword,
 		toggleShowPassword,
 	},
 }) => {
 	return (
-		<FormProvider methods={hookForm} onSubmit={onSubmit}>
+		<FormProvider methods={formMethods} onSubmit={onSubmit}>
 			<Stack spacing={3}>
 				<RHFTextField name="email" label="Correo Electrónico" />
 				<RHFTextField

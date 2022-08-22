@@ -1,61 +1,14 @@
 import { Link as RouterLink } from "react-router-dom";
 // @mui
-import { styled }                                        from "@mui/material/styles";
-import { Box, Card, Stack, Link, Container, Typography } from "@mui/material";
+import { Box, Stack, Link, Container, Typography } from "@mui/material";
 // routes
 import { PATH_AUTH } from "routes/paths";
-// hooks
-// import useAuth       from "hooks/useAuth";
 import useResponsive from "hooks/useResponsive";
 // core
-import Page          from "core/Page";
-import Logo          from "core/Logo";
-import { LoginForm } from "components/Login";
-// sections
-// import { LoginForm } from "components/Login";
-
-// ----------------------------------------------------------------------
-
-const RootStyle = styled("div")(({ theme }) => ({
-	[theme.breakpoints.up("md")] : {
-		display : "flex",
-	},
-}));
-
-const HeaderStyle = styled("header")(({ theme }) => ({
-	top                          : 0,
-	zIndex                       : 9,
-	lineHeight                   : 0,
-	width                        : "100%",
-	display                      : "flex",
-	alignItems                   : "center",
-	position                     : "absolute",
-	padding                      : theme.spacing(3),
-	justifyContent               : "space-between",
-	[theme.breakpoints.up("md")] : {
-		alignItems : "flex-start",
-		padding    : theme.spacing(7, 5, 0, 7),
-	},
-}));
-
-const SectionStyle = styled(Card)(({ theme }) => ({
-	width          : "100%",
-	maxWidth       : 464,
-	display        : "flex",
-	flexDirection  : "column",
-	justifyContent : "center",
-	margin         : theme.spacing(2, 0, 2, 2),
-}));
-
-const ContentStyle = styled("div")(({ theme }) => ({
-	maxWidth       : 480,
-	margin         : "auto",
-	display        : "flex",
-	minHeight      : "100vh",
-	flexDirection  : "column",
-	justifyContent : "center",
-	padding        : theme.spacing(12, 0),
-}));
+import Page from "core/Page";
+import Logo from "core/Logo";
+// components
+import { ContentWrap, Header, LoginForm, Section } from "components/auth";
 
 // ----------------------------------------------------------------------
 
@@ -67,8 +20,8 @@ export default function Login() {
 
 	return (
 		<Page title="Login">
-			<RootStyle>
-				<HeaderStyle>
+			<div className="md:flex">
+				<Header>
 					<Logo />
 					{smUp && (
 						<Typography variant="body2" sx={{ mt : { md : -2 } }}>
@@ -78,18 +31,18 @@ export default function Login() {
 							</Link>
 						</Typography>
 					)}
-				</HeaderStyle>
+				</Header>
 
 				{mdUp && (
-					<SectionStyle>
+					<Section>
 						<Typography variant="h3" sx={{ px : 5, mt : 10, mb : 5 }}>
 							¡Hola, Bienvenido!
 						</Typography>
-					</SectionStyle>
+					</Section>
 				)}
 
 				<Container maxWidth="sm">
-					<ContentStyle>
+					<ContentWrap>
 						<Stack direction="row" alignItems="center" sx={{ mb : 5 }}>
 							<Box sx={{ flexGrow : 1 }}>
 								<Typography variant="h4" gutterBottom>
@@ -110,9 +63,9 @@ export default function Login() {
 								</Link>
 							</Typography>
 						)}
-					</ContentStyle>
+					</ContentWrap>
 				</Container>
-			</RootStyle>
+			</div>
 		</Page>
 	);
 }

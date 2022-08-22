@@ -21,12 +21,12 @@ const LoginFormContainer = () => {
 		remember : true,
 	};
 
-	const hookForm = useForm({
+	const formMethods = useForm({
 		resolver : yupResolver(LoginSchema),
 		defaultValues,
 	});
 
-	const { handleSubmit } = hookForm;
+	const { handleSubmit } = formMethods;
 
 	const toggleShowPassword = () => setShowPassword(!showPassword);
 
@@ -38,7 +38,7 @@ const LoginFormContainer = () => {
 		<LoginForm
 			delegations={{
 				onSubmit,
-				hookForm,
+				formMethods,
 				showPassword,
 				toggleShowPassword,
 			}}

@@ -11,10 +11,10 @@ const RegisterFormContainer = () => {
 	const [showPassword, setShowPassword] = useState(false);
 
 	const RegisterSchema = Yup.object().shape({
-		firstName : Yup.string().required("First name required"),
-		lastName  : Yup.string().required("Last name required"),
-		email     : Yup.string().email("Email must be a valid email address").required("Email is required"),
-		password  : Yup.string().required("Password is required"),
+		firstName : Yup.string().required("El nombre es requerido"),
+		lastName  : Yup.string().required("El apellido es requerido"),
+		email     : Yup.string().email("El correo elctrónico debe de tener un formato valido").required("El correo electrónico es requerido"),
+		password  : Yup.string().required("La contraseña es requerida"),
 	});
 
 	const defaultValues = {
@@ -30,16 +30,25 @@ const RegisterFormContainer = () => {
 	});
 
 	const {
-		reset,
-		setError,
 		handleSubmit,
-		formState: { errors, isSubmitting },
 	} = formMethods;
 
-	const onSubmit = async (data) => {
-	};
+	const toggleShowPassword = () => setShowPassword(!showPassword);
+
+	const onSubmit = handleSubmit(async ( data ) => {
+		console.log("Register", data);
+	});
+
+
 	return (
-		<RegisterForm />
+		<RegisterForm
+			delegations={{
+				onSubmit,
+				formMethods,
+				showPassword,
+				toggleShowPassword,
+			}}
+		 />
 	);
 };
 
