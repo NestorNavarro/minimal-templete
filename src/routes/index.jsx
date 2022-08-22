@@ -1,16 +1,14 @@
 import { Suspense, lazy }                   from "react";
 import { Navigate, useRoutes, useLocation } from "react-router-dom";
 // layouts
-import DashboardLayout from "../layouts/dashboard";
-import LogoOnlyLayout  from "../layouts/LogoOnlyLayout";
+import DashboardLayout from "layouts/dashboard";
+import LogoOnlyLayout  from "layouts/LogoOnlyLayout";
 // components
-import LoadingScreen from "../core/LoadingScreen";
+import LoadingScreen from "core/LoadingScreen";
+
 // ----------------------------------------------------------------------
-
 const Loadable = (Component) => (props) => {
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const { pathname } = useLocation();
-
 	return (
 		<Suspense fallback={<LoadingScreen isDashboard={pathname.includes("/dashboard")} />}>
 			<Component {...props} />
@@ -22,6 +20,7 @@ const Loadable = (Component) => (props) => {
 const Login         = Loadable(lazy(() => import("pages/auth/Login")));
 const Register      = Loadable(lazy(() => import("pages/auth/Register")));
 const ResetPassword = Loadable(lazy(() => import("pages/auth/ResetPassword")));
+const VerifyCode    = Loadable(lazy(() => import("pages/auth/VerifyCode")));
 
 // Dashboard
 const Home = Loadable(lazy(() => import("pages/dashboard/Home")));
@@ -57,7 +56,7 @@ export default function Router() {
 					),
 			  },
 			  { path : "reset-password", element : <ResetPassword /> },
-			//   { path : "verify", element : <VerifyCode /> },
+			  { path : "verify", element : <VerifyCode /> },
 			],
 		},
 		//Auth DashBoard

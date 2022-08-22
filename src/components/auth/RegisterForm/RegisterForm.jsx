@@ -15,9 +15,7 @@ export default function RegisterForm({
 		toggleShowPassword,
 	},
 }) {
-	const {
-		formState: { isSubmitting },
-	} = formMethods;
+	const { formState: { isSubmitting } } = formMethods;
 
 	return (
 		<FormProvider methods={formMethods} onSubmit={onSubmit}>

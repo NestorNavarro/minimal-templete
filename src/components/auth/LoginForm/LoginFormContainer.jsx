@@ -1,12 +1,17 @@
-import { useState } from "react";
-import * as Yup     from "yup";
+import { useState }    from "react";
+import { useNavigate } from "react-router";
 // form
+import * as Yup        from "yup";
 import { useForm }     from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 // our componets
 import LoginForm from "./LoginForm";
+// paths
+import { PATH_DASHBOARD } from "routes/paths";
 
 const LoginFormContainer = () => {
+
+	const navigate = useNavigate();
 
 	const [showPassword, setShowPassword] = useState(false);
 
@@ -31,7 +36,15 @@ const LoginFormContainer = () => {
 	const toggleShowPassword = () => setShowPassword(!showPassword);
 
 	const onSubmit = handleSubmit(async ( data ) => {
-		console.log("Login", data);
+		try {
+			//replace for your petition
+			await new Promise((resolve) => setTimeout(resolve, 500));
+
+			console.log("Login", data);
+			navigate(PATH_DASHBOARD.home);
+		} catch (error) {
+			console.error(error);
+		}
 	});
 
 	return (

@@ -18,6 +18,8 @@ const LoginForm = ({
 		toggleShowPassword,
 	},
 }) => {
+	const { formState: { isSubmitting } } = formMethods;
+
 	return (
 		<FormProvider methods={formMethods} onSubmit={onSubmit}>
 			<Stack spacing={3}>
@@ -38,7 +40,7 @@ const LoginForm = ({
 				</Link>
 			</Stack>
 
-			<LoadingButton fullWidth size="large" type="submit" variant="contained" loading={false}>
+			<LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
 				Entrar
 			</LoadingButton>
 		</FormProvider>
