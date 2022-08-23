@@ -7,7 +7,6 @@ import ThemeProvider from "./theme";
 // components
 import { persistor }        from "./store";
 import LoadingScreen        from "core/LoadingScreen";
-import Settings             from "./core/settings";
 import RtlLayout            from "./core/RtlLayout";
 import ScrollToTop          from "./core/ScrollToTop";
 import { ProgressBarStyle } from "./core/ProgressBar";
@@ -27,7 +26,6 @@ export default function App() {
 					<RtlLayout>
 						<MotionLazyContainer>
 							<ProgressBarStyle />
-							<Settings />
 							<ScrollToTop />
 							<Router />
 						</MotionLazyContainer>

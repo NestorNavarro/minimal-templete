@@ -3,20 +3,21 @@ import PropTypes from "prop-types";
 import { styled }                      from "@mui/material/styles";
 import { Box, Stack, AppBar, Toolbar } from "@mui/material";
 // hooks
-import useOffSetTop  from "../../../hooks/useOffSetTop";
-import useResponsive from "../../../hooks/useResponsive";
+import useOffSetTop  from "hooks/useOffSetTop";
+import useResponsive from "hooks/useResponsive";
 // utils
-import cssStyles from "../../../helpers/cssStyles";
+import cssStyles from "helpers/cssStyles";
 // config
 import { HEADER, NAVBAR } from "../../../config";
 // components
-import Logo                  from "../../../core/Logo";
-import Iconify               from "../../../core/Iconify";
-import { IconButtonAnimate } from "../../../core/animate";
+import Logo                  from "core/Logo";
+import Iconify               from "core/Iconify";
+import { IconButtonAnimate } from "core/animate";
 //
 import Searchbar            from "./Searchbar";
 import AccountPopover       from "./AccountPopover";
 import NotificationsPopover from "./NotificationsPopover";
+import SettingPopover       from "./SettingPopover";
 
 // ----------------------------------------------------------------------
 
@@ -80,7 +81,7 @@ export default function DashboardHeader({ onOpenSidebar, isCollapse = false, ver
 				<Box sx={{ flexGrow : 1 }} />
 
 				<Stack direction="row" alignItems="center" spacing={{ xs : 0.5, sm : 1.5 }}>
-					{/* <Settings /> */}
+					<SettingPopover />
 					<NotificationsPopover />
 					<AccountPopover />
 				</Stack>
