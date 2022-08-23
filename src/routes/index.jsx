@@ -6,6 +6,7 @@ import LogoOnlyLayout  from "layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "core/LoadingScreen";
 import GuestGuard    from "components/global/GuestRoute";
+import PrivateRoute  from "components/global/PrivateRoute";
 
 // ----------------------------------------------------------------------
 const Loadable = (Component) => (props) => {
@@ -43,15 +44,15 @@ export default function Router() {
 				},
 				{
 					path    : "login",
-					element : <GuestGuard component={Login} />,
+					element : <Login />,
 				},
 				{
 					path    : "register",
-					element : <GuestGuard component={Register} />,
+					element : <Register />,
 				},
 				{
 					path    : "reset-password",
-					element : <GuestGuard component={ResetPassword} />,
+					element : <ResetPassword />,
 				},
 				{
 					path    : "verify",
@@ -63,7 +64,7 @@ export default function Router() {
 		//Auth DashBoard
 		{
 			path     : "dashboard",
-			element  : <DashboardLayout />,
+			element  : <PrivateRoute component={DashboardLayout} />,
 			children : [
 				{ element : <Navigate to="/dashboard/home" replace />, index : true },
 				{ path : "home", element : <Home /> },

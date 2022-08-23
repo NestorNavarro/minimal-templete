@@ -1,5 +1,7 @@
 import { shallowEqual, useSelector } from "react-redux";
-import { Navigate }                  from "react-router";
+// routes
+import { Navigate }        from "react-router";
+import { ROOTS_DASHBOARD } from "routes/paths";
 
 const GuestRoute = ({
 	component : Component,
@@ -8,7 +10,7 @@ const GuestRoute = ({
 	const { loggedIn } = useSelector(state => state.authSlice, shallowEqual);
 
 	return loggedIn
-		? <Navigate to="/dashboard" replace={true} />
+		? <Navigate to={ROOTS_DASHBOARD} replace={true} />
 		: <Component {...rest} />;
 };
 
