@@ -10,7 +10,7 @@ import { PATH_AUTH } from "routes/paths";
 import Page    from "core/Page";
 import Iconify from "core/Iconify";
 // components
-// import { VerifyCodeForm } from "../../sections/auth/verify-code";
+import { VerifyCodeForm } from "components/auth";
 
 // ----------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ export default function VerifyCode() {
 						</Typography>
 
 						<Box sx={{ mt : 5, mb : 3 }}>
-							{/* <VerifyCodeForm /> */}
+							<VerifyCodeForm />
 						</Box>
 
 						<Typography variant="body2" align="center">
