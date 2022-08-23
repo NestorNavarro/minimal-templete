@@ -1,6 +1,7 @@
-// components
+// routes
 import { PATH_DASHBOARD } from "routes/paths";
-import SvgIconStyle       from "../../../core/SvgIconStyle";
+// Icons
+import SvgIconStyle from "core/SvgIconStyle";
 
 // ----------------------------------------------------------------------
 
@@ -23,17 +24,16 @@ const sidebarConfig = [
 		],
 	},
 
-	// MANAGEMENT
+	// users
 	// ----------------------------------------------------------------------
 	{
-		subheader : "management",
+		subheader : "Usuarios",
 		items     : [
 			{
 				title    : "user",
 				path     : "/dashboard/user",
 				icon     : ICONS.user,
 				children : [
-					{ title : "Perfil", path : PATH_DASHBOARD.users.profile },
 					{ title : "Cartas", path : PATH_DASHBOARD.users.cards },
 					{ title : "Nuevo",  path : PATH_DASHBOARD.users.new },
 				],

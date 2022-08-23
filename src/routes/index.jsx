@@ -1,10 +1,11 @@
-import { Suspense, lazy }                   from "react";
-import { Navigate, useRoutes, useLocation } from "react-router-dom";
+import { Suspense, lazy }                           from "react";
+import { Navigate, useRoutes, useLocation, Outlet } from "react-router-dom";
 // layouts
 import DashboardLayout from "layouts/dashboard";
 import LogoOnlyLayout  from "layouts/LogoOnlyLayout";
 // components
 import LoadingScreen from "core/LoadingScreen";
+import GuestGuard    from "components/global/GuestRoute";
 
 // ----------------------------------------------------------------------
 const Loadable = (Component) => (props) => {
@@ -21,14 +22,11 @@ const Login         = Loadable(lazy(() => import("pages/auth/Login")));
 const Register      = Loadable(lazy(() => import("pages/auth/Register")));
 const ResetPassword = Loadable(lazy(() => import("pages/auth/ResetPassword")));
 const VerifyCode    = Loadable(lazy(() => import("pages/auth/VerifyCode")));
-
 // Dashboard
 const Home = Loadable(lazy(() => import("pages/dashboard/Home")));
 //users
-const UserProfile = Loadable(lazy(() => import("pages/dashboard/UserProfile")));
 const UserCards   = Loadable(lazy(() => import("pages/dashboard/UserCards")));
 const UserCreate  = Loadable(lazy(() => import("pages/dashboard/UserCreate")));
-
 //Erros
 const NotFound = Loadable(lazy(() => import("pages/Page404")));
 
@@ -37,26 +35,29 @@ export default function Router() {
 		//Auth Routes
 		{
 			path     : "auth",
-			// element  : <Navigate to="/auth/login" replace />,
+			element  : <GuestGuard component={Outlet} />,
 			children : [
-			  {
+				{
+					index   : true,
+					element : <Navigate to="/auth/login" replace />,
+				},
+				{
 					path    : "login",
-					element : (
-						// <GuestGuard>
-						<Login />
-						// </GuestGuard>
-					),
-			  },
-			  {
+					element : <GuestGuard component={Login} />,
+				},
+				{
 					path    : "register",
-					element : (
-						// <GuestGuard>
-						<Register />
-						// </GuestGuard>
-					),
-			  },
-			  { path : "reset-password", element : <ResetPassword /> },
-			  { path : "verify", element : <VerifyCode /> },
+					element : <GuestGuard component={Register} />,
+				},
+				{
+					path    : "reset-password",
+					element : <GuestGuard component={ResetPassword} />,
+				},
+				{
+					path    : "verify",
+					element : <GuestGuard component={VerifyCode} />,
+				},
+				{ path : "*", element : <Navigate to="/auth/login" replace />},
 			],
 		},
 		//Auth DashBoard
@@ -69,8 +70,7 @@ export default function Router() {
 				{
 					path     : "user",
 					children : [
-						{ element : <Navigate to="/dashboard/user/profile" replace />, index : true },
-						{ path : "profile", element : <UserProfile /> },
+						{ element : <Navigate to="/dashboard/user/cards" replace />, index : true },
 						{ path : "cards", element : <UserCards /> },
 						{ path : "new", element : <UserCreate /> },
 						{ path : "edit/:id", element : <UserCreate /> },
@@ -91,6 +91,5 @@ export default function Router() {
 				{ path : "*", element : <Navigate to="/404" replace /> },
 			],
 		},
-		{ path : "*", element : <Navigate to="/404" replace /> },
 	]);
 }

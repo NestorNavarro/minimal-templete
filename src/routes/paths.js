@@ -16,10 +16,9 @@ export const PATH_DASHBOARD = {
 	root  : ROOTS_DASHBOARD,
 	home  : path(ROOTS_DASHBOARD, "/home"),
 	users : {
-		root    : path(ROOTS_DASHBOARD, "/user"),
-		new     : path(ROOTS_DASHBOARD, "/user/new"),
-		cards   : path(ROOTS_DASHBOARD, "/user/cards"),
-		profile : path(ROOTS_DASHBOARD, "/user/profile"),
-		edit    : (id) => path(ROOTS_DASHBOARD, `/user/edit/${id}`),
+		root  : path(ROOTS_DASHBOARD, "/user"),
+		new   : path(ROOTS_DASHBOARD, "/user/new"),
+		cards : path(ROOTS_DASHBOARD, "/user/cards"),
+		edit  : (id) => path(ROOTS_DASHBOARD, `/user/edit/${id}`),
 	},
 };

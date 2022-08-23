@@ -5,7 +5,7 @@ import { LoadingButton } from "@mui/lab";
 // routes
 import { PATH_AUTH } from "routes/paths";
 // components
-import Iconify                                     from "components/global/Iconify";
+import Iconify                                     from "core/Iconify";
 import { RHFTextField, RHFCheckbox, FormProvider } from "components/global/hook-form";
 
 // ----------------------------------------------------------------------

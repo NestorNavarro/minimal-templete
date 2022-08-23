@@ -4,7 +4,7 @@ import { useFormContext, Controller } from "react-hook-form";
 // @mui
 import { FormHelperText } from "@mui/material";
 // type
-import { UploadAvatar, UploadMultiFile, UploadSingleFile } from "../upload";
+import { UploadAvatar, UploadMultiFile, UploadSingleFile } from "core/upload";
 
 // ----------------------------------------------------------------------
 

@@ -1,9 +1,20 @@
 // import "regenerator-runtime/runtime"; Uncomment this line if bugs appear.
-import { combineReducers }              from "redux";
-import { persistStore, persistReducer } from "redux-persist";
-import { configureStore }               from "@reduxjs/toolkit";
-import { setupListeners }               from "@reduxjs/toolkit/query";
-import localForage                      from "localforage";
+import { combineReducers } from "redux";
+import { configureStore }  from "@reduxjs/toolkit";
+import { setupListeners }  from "@reduxjs/toolkit/query";
+import localForage         from "localforage";
+
+import {
+	persistStore,
+	persistReducer,
+	FLUSH,
+	REHYDRATE,
+	PAUSE,
+	PERSIST,
+	PURGE,
+	REGISTER,
+} from "redux-persist";
+
 
 // Import Own Components
 import { api }     from "./api";
@@ -24,6 +35,7 @@ const rootReducer    = combineReducers({
 const persistConfig = {
 	key       : "root",
 	storage   : localForage,
+	version   : 1,
 	whitelist : [
 		"authSlice",
 	],
@@ -35,7 +47,11 @@ export const store = configureStore({
 	reducer    : persistedReducer,
 	devTools   : import.meta.env.DEV,
 	middleware : (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(api.middleware),
+		getDefaultMiddleware({
+			serializableCheck : {
+				ignoredActions : [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+		}).concat(api.middleware),
 });
 
 setupListeners(store.dispatch);

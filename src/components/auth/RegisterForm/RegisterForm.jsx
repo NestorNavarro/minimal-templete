@@ -2,7 +2,7 @@
 import { Stack }         from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 // components
-import Iconify                        from "components/global/Iconify";
+import Iconify                        from "core/Iconify";
 import { RHFTextField, FormProvider } from "components/global/hook-form";
 
 // ----------------------------------------------------------------------

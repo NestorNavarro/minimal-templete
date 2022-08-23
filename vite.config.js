@@ -22,5 +22,8 @@ export default defineConfig({
 			...absolutePathAliases,
 		},
 	},
-
+	server : {
+		open : true,
+		host : "0.0.0.0",
+	},
 });
