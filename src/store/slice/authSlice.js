@@ -7,6 +7,7 @@ const initialState = {
 		_id   : "",
 		name  : "",
 		email : "",
+		role  : "administrator",
 	},
 };
 

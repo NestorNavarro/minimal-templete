@@ -4,6 +4,11 @@ const path = (root, sublink) =>  `${root}${sublink}`;
 export const ROOTS_AUTH      = "/auth";
 export const ROOTS_DASHBOARD = "/dashboard";
 
+export const PATH_ERROR_PAGE = {
+	page404 : "/404",
+	page500 : "/500",
+};
+
 export const PATH_AUTH = {
 	root          : ROOTS_AUTH,
 	login         : path(ROOTS_AUTH, "/login"),

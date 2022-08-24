@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 // @mui
 import { styled }                             from "@mui/material/styles";
 import { Box, Button, Typography, Container } from "@mui/material";
-// components
+// core
 import Page                           from "core/Page";
 import { MotionContainer, varBounce } from "core/animate";
 // assets
@@ -29,7 +29,7 @@ export default function Page404() {
 					<Box sx={{ maxWidth : 480, margin : "auto", textAlign : "center" }}>
 						<m.div variants={varBounce().in}>
 							<Typography variant="h3" paragraph>
-								¡Lo sentimos, la página no encontrado!
+								¡Lo sentimos, la página no fue encontrada!
 							</Typography>
 						</m.div>
 						<Typography sx={{ color : "text.secondary" }}>

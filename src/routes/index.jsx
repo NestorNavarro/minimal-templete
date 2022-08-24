@@ -4,8 +4,8 @@ import { Navigate, useRoutes, useLocation, Outlet } from "react-router-dom";
 import DashboardLayout from "layouts/dashboard";
 import LogoOnlyLayout  from "layouts/LogoOnlyLayout";
 // components
-import LoadingScreen from "core/LoadingScreen";
-import GuestGuard    from "components/global/GuestRoute";
+import { Guard, GuestRoute } from "components/global";
+import LoadingScreen         from "core/LoadingScreen";
 
 // ----------------------------------------------------------------------
 const Loadable = (Component) => (props) => {
@@ -29,13 +29,15 @@ const UserCards   = Loadable(lazy(() => import("pages/dashboard/UserCards")));
 const UserCreate  = Loadable(lazy(() => import("pages/dashboard/UserCreate")));
 //Erros
 const NotFound = Loadable(lazy(() => import("pages/Page404")));
+const Page500  = Loadable(lazy(() => import("pages/Page500")));
+
 
 export default function Router() {
 	return useRoutes([
 		//Auth Routes
 		{
 			path     : "auth",
-			element  : <GuestGuard component={Outlet} />,
+			element  : <GuestRoute component={Outlet} />,
 			children : [
 				{
 					index   : true,
@@ -72,9 +74,30 @@ export default function Router() {
 					path     : "user",
 					children : [
 						{ element : <Navigate to="/dashboard/user/cards" replace />, index : true },
-						{ path : "cards", element : <UserCards /> },
-						{ path : "new", element : <UserCreate /> },
-						{ path : "edit/:id", element : <UserCreate /> },
+						{
+							path    : "cards",
+							element : (
+								<Guard permission="user:read">
+									<UserCards />
+								</Guard>
+							),
+						},
+						{
+							path    : "new",
+							element : (
+								<Guard permission="user:create">
+									<UserCreate />
+								</Guard>
+							),
+						},
+						{
+							path    : "edit/:id",
+							element : (
+								<Guard permission="user:create">
+									<UserCreate />
+								</Guard>
+							),
+						},
 					],
 				},
 			],
@@ -88,6 +111,7 @@ export default function Router() {
 			path     : "*",
 			element  : <LogoOnlyLayout />,
 			children : [
+				{ path : "500", element : <Page500 /> },
 				{ path : "404", element : <NotFound /> },
 				{ path : "*", element : <Navigate to="/404" replace /> },
 			],

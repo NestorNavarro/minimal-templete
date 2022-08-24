@@ -30,8 +30,8 @@ NavSectionVertical.propTypes = {
 export default function NavSectionVertical({ navConfig, isCollapse = false, ...other }) {
 	return (
 		<Box {...other}>
-			{navConfig.map((group) => (
-				<List key={group.subheader} disablePadding sx={{ px : 2 }}>
+			{navConfig.map((group, gruopIndex) => (
+				<List key={`${group.subheader}-${gruopIndex}`} disablePadding sx={{ px : 2 }}>
 					<ListSubheaderStyle
 						sx={{
 							...(isCollapse && {
@@ -42,10 +42,8 @@ export default function NavSectionVertical({ navConfig, isCollapse = false, ...o
 						{group.subheader}
 					</ListSubheaderStyle>
 
-					{group.items.map((list) => (
-						<>
-							<NavListRoot key={list.title} list={list} isCollapse={isCollapse} />
-						</>
+					{group.items.map((list, listIndex) => (
+						<NavListRoot key={`${list.title}-${listIndex}`} list={list} isCollapse={isCollapse} />
 					))}
 				</List>
 			))}
