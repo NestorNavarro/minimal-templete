@@ -3,7 +3,8 @@ import { shallowEqual, useSelector } from "react-redux";
 //acces
 import { ac, isValidArray } from "helpers";
 import { Navigate }         from "react-router";
-import { PATH_ERROR_PAGE }  from "routes/paths";
+// routes
+import { PATH_ERROR_PAGE } from "routes/paths";
 
 
 const Guard = ({
