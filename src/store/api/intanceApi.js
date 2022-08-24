@@ -1,10 +1,9 @@
 import qs from "qs";
-
 // -------
-import { buildFormData, isValidArray } from "Helpers";
 import { api }                         from ".";
+import { buildFormData, isValidArray } from "helpers";
 
-export const genericApi = api.injectEndpoints({
+export const instanceApi = api.injectEndpoints({
 	endpoints : builder => ({
 		getData : builder.query({
 			query : ({module, params}) =>  `${module}/?${qs.stringify(params)}`,

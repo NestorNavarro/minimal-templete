@@ -9,7 +9,7 @@ import { UploadAvatar, UploadMultiFile, UploadSingleFile } from "core/upload";
 // ----------------------------------------------------------------------
 
 RHFUploadAvatar.propTypes = {
-	name : PropTypes.string,
+	name : PropTypes.string.isRequired,
 };
 
 export function RHFUploadAvatar({ name, ...other }) {
@@ -22,12 +22,23 @@ export function RHFUploadAvatar({ name, ...other }) {
 			render={({ field, fieldState: { error } }) => {
 				const checkError = !!error && !field.value;
 
+				const handleDrop = acceptedFiles => {
+					const file = acceptedFiles[0];
+
+					if (file) {
+						const createObjectURL = Object.assign(file, { preview : URL.createObjectURL(file) });
+						field.onChange(createObjectURL);
+					}
+
+					return null;
+				};
+
 				return (
 					<div>
-						<UploadAvatar error={checkError} {...other} file={field.value} />
+						<UploadAvatar error={checkError} {...other} file={field.value} onDrop={handleDrop} />
 						{checkError && (
 							<FormHelperText error sx={{ px : 2, textAlign : "center" }}>
-								{error.message}
+								<div className="m-0 p-0" dangerouslySetInnerHTML={{ __html : error.message }} />
 							</FormHelperText>
 						)}
 					</div>
