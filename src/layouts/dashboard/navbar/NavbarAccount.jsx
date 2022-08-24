@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 // @mui
 import { styled }                        from "@mui/material/styles";
 import { Box, Link, Typography, Avatar } from "@mui/material";
+import { shallowEqual, useSelector }     from "react-redux";
 
 // ----------------------------------------------------------------------
 
@@ -23,6 +24,9 @@ NavbarAccount.propTypes = {
 };
 
 export default function NavbarAccount({ isCollapse }) {
+
+	const { name, role } = useSelector( state => state.authSlice.user, shallowEqual);
+
 	return (
 		<Link underline="none" color="inherit">
 			<RootStyle
@@ -48,10 +52,10 @@ export default function NavbarAccount({ isCollapse }) {
 					}}
 				>
 					<Typography variant="subtitle2" noWrap>
-						Rayan Moran
+						{name}
 					</Typography>
 					<Typography variant="body2" noWrap sx={{ color : "text.secondary" }}>
-						user
+						{role}
 					</Typography>
 				</Box>
 			</RootStyle>

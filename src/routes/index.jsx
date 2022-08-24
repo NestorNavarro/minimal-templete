@@ -4,8 +4,8 @@ import { Navigate, useRoutes, useLocation, Outlet } from "react-router-dom";
 import DashboardLayout from "layouts/dashboard";
 import LogoOnlyLayout  from "layouts/LogoOnlyLayout";
 // components
-import { Guard, GuestRoute } from "components/global";
-import LoadingScreen         from "core/LoadingScreen";
+import { Guard, GuestRoute, PrivateRoute } from "components/global";
+import LoadingScreen                       from "core/LoadingScreen";
 
 // ----------------------------------------------------------------------
 const Loadable = (Component) => (props) => {
@@ -65,8 +65,7 @@ export default function Router() {
 		//Auth DashBoard
 		{
 			path     : "dashboard",
-			// element  : <PrivateRoute component={DashboardLayout} />,
-			element  : <DashboardLayout />,
+			element  : <PrivateRoute component={DashboardLayout} />,
 			children : [
 				{ element : <Navigate to="/dashboard/home" replace />, index : true },
 				{ path : "home", element : <Home /> },

@@ -2,30 +2,28 @@ import { useState } from "react";
 // @mui
 import { alpha }                                             from "@mui/material/styles";
 import { Box, Divider, Typography, Stack, MenuItem, Avatar } from "@mui/material";
-// components
-import MenuPopover           from "../../../core/MenuPopover";
-import { IconButtonAnimate } from "../../../core/animate";
+// routes
+import { PATH_DASHBOARD } from "routes/paths";
+// core
+import MenuPopover                   from "core/MenuPopover";
+import { IconButtonAnimate }         from "core/animate";
+import { shallowEqual, useSelector } from "react-redux";
 
 // ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
 	{
-		label  : "Home",
-		linkTo : "/",
-	},
-	{
-		label  : "Profile",
-		linkTo : "/",
-	},
-	{
-		label  : "Settings",
-		linkTo : "/",
+		label  : "Inicio",
+		linkTo : PATH_DASHBOARD.home,
 	},
 ];
 
 // ----------------------------------------------------------------------
 
 export default function AccountPopover() {
+
+	const { name, email } = useSelector( state => state.authSlice.user, shallowEqual);
+
 	const [open, setOpen] = useState(null);
 
 	const handleOpen = (event) => {
@@ -55,7 +53,7 @@ export default function AccountPopover() {
 					}),
 				}}
 			>
-				<Avatar src="https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_5.jpg" alt="Rayan Moran" />
+				<Avatar src="https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_5.jpg" alt={name} />
 			</IconButtonAnimate>
 
 			<MenuPopover
@@ -74,10 +72,10 @@ export default function AccountPopover() {
 			>
 				<Box sx={{ my : 1.5, px : 2.5 }}>
 					<Typography variant="subtitle2" noWrap>
-						Rayan Moran
+						{name}
 					</Typography>
 					<Typography variant="body2" sx={{ color : "text.secondary" }} noWrap>
-						rayan.moran@gmail.com
+						{email}
 					</Typography>
 				</Box>
 
@@ -93,7 +91,7 @@ export default function AccountPopover() {
 
 				<Divider sx={{ borderStyle : "dashed" }} />
 
-				<MenuItem sx={{ m : 1 }}>Logout</MenuItem>
+				<MenuItem sx={{ m : 1 }}>Cerrar Sesión</MenuItem>
 			</MenuPopover>
 		</>
 	);

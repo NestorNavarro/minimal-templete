@@ -4,9 +4,9 @@ const initialState = {
 	token    : "",
 	loggedIn : false,
 	user     : {
-		_id   : "",
-		name  : "",
-		email : "",
+		_id   : "1",
+		name  : "Nestor",
+		email : "nestor@gmail.com",
 		role  : "administrator",
 	},
 };
