@@ -5,6 +5,7 @@ export const ROOTS_AUTH      = "/auth";
 export const ROOTS_DASHBOARD = "/dashboard";
 
 export const PATH_ERROR_PAGE = {
+	page403 : "/500",
 	page404 : "/404",
 	page500 : "/500",
 };

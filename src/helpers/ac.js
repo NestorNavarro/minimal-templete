@@ -1,13 +1,18 @@
 import AccessControl from "accesscontrol";
 
+export const ROLES = {
+	administrator : "administrator",
+	client        : "client",
+};
+
 // This is actually how the grants are maintained internally.
 const grantsObject = {
-	administrator : {
+	[ROLES.administrator] : {
 		user : {
-			"create:any" : ["*"],
-			"read:any"   : ["*"],
-			"update:any" : ["*"],
-			"delete:any" : ["*"],
+			"create" : ["*"],
+			"read"   : ["*"],
+			"update" : ["*"],
+			"delete" : ["*"],
 		},
 	},
 };

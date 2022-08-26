@@ -4,8 +4,10 @@ import { Navigate, useRoutes, useLocation, Outlet } from "react-router-dom";
 import DashboardLayout from "layouts/dashboard";
 import LogoOnlyLayout  from "layouts/LogoOnlyLayout";
 // components
-import { Guard, GuestRoute } from "components/global";
-import LoadingScreen         from "core/LoadingScreen";
+import { GuestRoute, RoleBasedAuth } from "components/global";
+import LoadingScreen                 from "core/LoadingScreen";
+
+import { USERS_PERMISSION } from "./roleBasedAuth";
 
 // ----------------------------------------------------------------------
 const Loadable = (Component) => (props) => {
@@ -76,27 +78,15 @@ export default function Router() {
 						{ element : <Navigate to="/dashboard/user/cards" replace />, index : true },
 						{
 							path    : "cards",
-							element : (
-								<Guard permission="user:read">
-									<UserCards />
-								</Guard>
-							),
+							element : <RoleBasedAuth component={UserCards} requiredRoles={USERS_PERMISSION.cards} />,
 						},
 						{
 							path    : "new",
-							element : (
-								<Guard permission="user:create">
-									<UserCreate />
-								</Guard>
-							),
+							element : <RoleBasedAuth component={UserCreate} requiredRoles={USERS_PERMISSION.new} />,
 						},
 						{
 							path    : "edit/:id",
-							element : (
-								<Guard permission="user:update">
-									<UserCreate />
-								</Guard>
-							),
+							element : <RoleBasedAuth component={UserCreate} requiredRoles={USERS_PERMISSION.edit} />,
 						},
 					],
 				},
