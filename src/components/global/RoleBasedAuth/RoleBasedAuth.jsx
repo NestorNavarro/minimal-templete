@@ -5,7 +5,7 @@ import { Navigate }                  from "react-router";
 import { PATH_ERROR_PAGE } from "routes/paths";
 
 const RoleBasedAuth = ({ component : Component, requiredRoles = [] }) => {
-
+	//it means that all roles have access
 	if (!isValidArray(requiredRoles)) return <Component />;
 
 	const { role } = useSelector( state => state.authSlice.user, shallowEqual);
